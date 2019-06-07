@@ -51,7 +51,7 @@ public class PoiMergeDocUtil {
                 XWPFDocument srclDocument = new XWPFDocument(opcpList.get(0));
                 CTBody srclBody = srclDocument.getDocument().getBody();
                 if (opcpSize > 1) {
-                    for (int i = 0; i < opcpSize; i++) {
+                    for (int i = 1; i < opcpSize; i++) {
                         OPCPackage src2Package = opcpList.get(i);
                         XWPFDocument src2Document = new XWPFDocument(src2Package);
                         CTBody src2Body = src2Document.getDocument().getBody();
