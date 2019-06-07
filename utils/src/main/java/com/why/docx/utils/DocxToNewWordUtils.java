@@ -164,13 +164,13 @@ public class DocxToNewWordUtils {
      */
     public static void insertTable(XWPFTable table, List<String[]> tableList) {
         //创建行，根据需要插入的数据添加新行，不处理表头
-        for (int i = 0; i < tableList.size(); i++) {
+        for (int i = 1; i < tableList.size(); i++) {
             //创建表格
             table.createRow();
         }
         //遍历表格插入数据
         List<XWPFTableRow> rows = table.getRows();
-        for (int i = 0; i < rows.size(); i++) {
+        for (int i = 1; i < rows.size(); i++) {
             XWPFTableRow newRow = table.getRow(i);
             List<XWPFTableCell> cells = newRow.getTableCells();
             for (int j = 0; j < cells.size(); j++) {
@@ -225,9 +225,14 @@ public class DocxToNewWordUtils {
         testMap.put("name", "小明");
         testMap.put("sex", "男");
         testMap.put("age", "18");
-        testMap.put("txt", "18");
+        testMap.put("txtWorkMode", "0000");
+        testMap.put("address", "软件园");
 
         List<String[]> testList = new ArrayList<String[]>();
+        testList.add(new String[]{"1","1AA","1BB","1CC"});
+        testList.add(new String[]{"2","2AA","2BB","2CC"});
+        testList.add(new String[]{"3","3AA","3BB","3CC"});
+        testList.add(new String[]{"4","4AA","4BB","4CC"});
         DocxToNewWordUtils.changeWord(inputUrl, outputUrl, testMap, testList);
     }
 }
